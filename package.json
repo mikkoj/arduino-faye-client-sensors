@@ -1,0 +1,8 @@
+{
+  "name": "arduino-faye-client-sensors",
+  "version": "1.0.0",
+  "dependencies": {
+    "johnny-five": "^0.8.14",
+    "faye": "^1.0.3"
+  }
+}
