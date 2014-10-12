@@ -1,5 +1,5 @@
 Arduino Yún sensors - faye pub/sub in the cloud - browser-client
-===
+---
 
 This repository contains code for reading sensor data from Arduino Yún with [johnny-five](https://github.com/rwaldron/johnny-five/),
 and publishing it to a [Faye](http://faye.jcoglan.com/)-server in the cloud.
