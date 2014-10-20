@@ -1,6 +1,6 @@
 var five = require("johnny-five");
 
-var PORT_DEV = '\\\\.\\COM5';
+var PORT_DEV = '\\\\.\\COM7';
 var PORT_YUN = '/dev/ttyATH0';
 
 var boardPort = PORT_DEV;
