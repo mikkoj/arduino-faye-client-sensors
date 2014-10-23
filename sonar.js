@@ -8,23 +8,6 @@ board.on("ready", function() {
     // Create a new `ping` hardware instance.
     var ping = new five.Ping(7);
 
-    // Properties
-
-    // ping.microseconds
-    //
-    // Roundtrip distance in microseconds
-    //
-
-    // ping.inches
-    //
-    // Calculated distance to object in inches
-    //
-
-    // ping.cm
-    //
-    // Calculated distance to object in centimeters
-    //
-
     // Ping Event API
 
     // "data" get the current reading from the ping

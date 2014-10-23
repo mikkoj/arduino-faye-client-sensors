@@ -1,31 +1,56 @@
+var async = require('async');
 var five = require("johnny-five");
-var common = require('./common');
 var board = require('./board');
 
-board.on("ready", function() {
+board.on("ready", function () {
 
-    var boardLed = new five.Led({
-        pin: 13
+    console.log('board ready');
+
+    var poytaAlas = new five.Pin({
+        pin: 10
     });
 
-    var poyta = new five.Pin({
+    var poytaYlos = new five.Pin({
         pin: 11
     });
 
-    console.log('writing high');
-    poyta.high();
-    poyta.query(function(state) {
-        console.log(state);
-    });
+    poytaAlas.low();
+    poytaYlos.low();
 
-    (function loop() {
-        setTimeout(function() {
-            //console.log('writing low');
-            //poyta.low();
-            boardLed.toggle();
+    var poytaYlosAlas =
+    [
+        function (callback) {
+            console.log('poytä alas start');
+            poytaAlas.high();
 
+            setTimeout(function () {
+                console.log('pöytä alas stop');
+                poytaAlas.low();
+                callback();
+            }, 2000);
+        },
+        function (callback) {
+            setTimeout(function () {
+                callback();
+            }, 50);
+        },
+        function (callback) {
+            console.log('poytä ylös start');
+            poytaYlos.high();
 
-            loop();
-        }, 1000);
-    })();
+            setTimeout(function () {
+                console.log('pöytä ylös stop');
+                poytaYlos.low();
+                callback();
+            }, 2000);
+        },
+        function (callback) {
+            setTimeout(function () {
+                callback();
+            }, 50);
+        }
+    ];
+
+    var tasks = poytaYlosAlas.concat(poytaYlosAlas, poytaYlosAlas);
+    async.series(tasks);
 });
