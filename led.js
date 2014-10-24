@@ -17,5 +17,5 @@ var Ledi = function(pin, initialRate) {
 
 board.on("ready", function() {
     var initialRate = 500;
-    var led1 = new Ledi(13, initialRate);
+    var led1 = new Ledi(common.ShieldPort.O2, initialRate);
 });
